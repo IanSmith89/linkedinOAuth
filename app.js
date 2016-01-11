@@ -47,13 +47,11 @@ passport.use(new LinkedInStrategy({
   }));
 
 app.get('/auth/linkedin',
-  passport.authenticate('linkedin', {
-    state: 'SOME STATE'
-  }),
+  passport.authenticate('linkedin',
   function(req, res) {
     // The request will be redirected to LinkedIn for authentication, so this
     // function will not be called.
-  });
+  }));
 
 app.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
   successRedirect: '/',
